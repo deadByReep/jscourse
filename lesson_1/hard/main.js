@@ -13,4 +13,5 @@ function mas(n) {
   m = String(m).split('').map(Number);
   return m;
 }
- document.write(over[0], over[1]);
+
+ alert(over[0] + '' + over[1]);

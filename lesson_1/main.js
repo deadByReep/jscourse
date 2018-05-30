@@ -1,16 +1,18 @@
-var modalOne = prompt("Ваш бюджет за месяц?", "Введите число"),
-	modalTwo = prompt("Название вашего магазина?","Ваше название"),
+var budgetMonth = prompt("Ваш бюджет за месяц?", "Введите число"),
+	yourNameShop = prompt("Название вашего магазина?","Ваше название"),
 	productOne = prompt("Какой тип товаров будем продавать?", "яблочки там, апельсинчики"),
 	productTwo = prompt("Какой тип товаров будем продавать?", "яблочки там, апельсинчики"),
 	productThree = prompt("Какой тип товаров будем продавать?", "яблочки там, апельсинчики");
+
 var mainList = {
-	budget: modalOne,
-	shopName: modalTwo,
+	budget: budgetMonth,
+	shopName: yourNameShop,
 	shopGoods: [productOne, productTwo, productThree],
 	employers: {
 		
 	},
 	open: false
 };
+
 console.log(mainList);
-document.write("Ваш бюджет на 1 день : ",modalOne / 30);
+alert("Ваш бюджет на 1 день : " + budgetMonth / 30);
