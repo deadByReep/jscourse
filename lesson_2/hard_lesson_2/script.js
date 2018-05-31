@@ -5,7 +5,7 @@ var week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", 
 document.write(content);//Выводит месяцы
 
 for (var i = 0; i < arr.length; i++) {
-	if (arr[i].charAt(0) == 3 || arr[i].charAt(0) == 7) {
-		console.log(arr[i])
+	if (arr[i][0] == 3 || arr[i][0] == 7) {
+		console.log(arr[i]);
 	}
 }//Выводит в консоль числа массива ничинающиеся с 3 и 7

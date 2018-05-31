@@ -21,7 +21,7 @@ while(i < 5) {
 if ((typeof(product)) === 'string' && (typeof(product)) != null && product != '' && product.length < 50) {
  		console.log('Все верно');
  	} else {
- 		console.log("Вы где то ошиблись")
+ 		--i;
  	}*/
  	//Первый способ	 !!
 
@@ -35,7 +35,7 @@ if ((typeof(product)) === 'string' && (typeof(product)) != null && product != ''
 if ((typeof(product)) === 'string' && (typeof(product)) != null && product != '' && product.length < 50) {
  		console.log('Все верно');
  	} else {
- 		console.log("Вы где то ошиблись")
+ 		--i;
  	}*/
  	// Второй способ !!
  	
@@ -47,7 +47,7 @@ if ((typeof(product)) === 'string' && (typeof(product)) != null && product != ''
  		console.log('Все верно');
  		mainList.shopGoods[i] = product;
  	} else {
-		console.log("Вы где то ошиблись")
+		--i;
  	}
  }
 
