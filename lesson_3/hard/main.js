@@ -1,8 +1,9 @@
-var str = "урок-3-был слишком легким";
-    newStr = str[0].toUpperCase() + str.slice(1).replace(/-/g, " "),
-    newStrTwo = newStr.replace(/легким/g, ""),
+var str = "урок-3-был слишком легким",
+    newStr = str[0].toUpperCase() + str.slice(1).replace(/-/g, " ");
+    console.log(newStr);
+var newStrTwo = newStr.replace(/легким/g, ""),
     newStrThree = newStrTwo.replace(/слишком/g, "слишкоо"),
-    arr = [20, 33, 1, "Человек", 2, 3]
+    arr = [20, 33, 1, "Человек", 2, 3];
 console.log(newStrThree);//Вывел ответ
 var cubeSum = arr[0] ** 3 + arr[1] ** 3 + arr[2] ** 3 + arr[4] ** 3 + arr[5] ** 3;
 
