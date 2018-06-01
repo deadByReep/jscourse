@@ -3,11 +3,20 @@ var str = "урок-3-был слишком легким",
     console.log(newStr);
 var newStrTwo = newStr.replace(/легким/g, ""),
     newStrThree = newStrTwo.replace(/слишком/g, "слишкоо"),
-    arr = [20, 33, 1, "Человек", 2, 3];
+    arr = [20, 33, 1, "Человек", 2, 3],
+    newArr = [];
 console.log(newStrThree);//Вывел ответ
-var cubeSum = arr[0] ** 3 + arr[1] ** 3 + arr[2] ** 3 + arr[4] ** 3 + arr[5] ** 3;
 
+	for (var i = 0;i < arr.length; i++) {
+if (typeof(arr[i]) === "number") {
+	var arrUpCube = arr[i] * arr[i] * arr[i];
+	newArr.push(arrUpCube);
+	}
+}	for (var j = 0, cubeSum = 0; j < newArr.length; j++) {
+	  cubeSum += newArr[j];
+}
 console.log(Math.sqrt(cubeSum));//Корень сумм кубов кубов 
+
 
 var input = prompt("Строку введите");
 function getInfo (text) {
