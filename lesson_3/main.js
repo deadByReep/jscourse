@@ -1,12 +1,15 @@
 var budgetMonth = prompt("Ваш бюджет за месяц?", "Введите число"),
-	yourNameShop = prompt("Название вашего магазина?","Ваше название");
+	yourNameShop = prompt("Название вашего магазина?","Ваше название"),
+	price = 100;
+
 
 var mainList = {
 	budget: budgetMonth,
 	shopName: yourNameShop,
 	shopGoods: [],
 	employers: {},
-	open: false
+	open: false,
+	discount:true
 };
 
 /*var i = 0;
@@ -50,7 +53,35 @@ while(i < 5) {
 		--i;
  	}
  }
+function giveNameEmpoloyers() {
+	for (let i = 0; i < 4; i++) {
+		let nameEmployers = prompt("Имя вашего сотрудника");
+		if((typeof(nameEmployers)) === 'string' && (typeof(nameEmployers)) != null && nameEmployers != '' && nameEmployers.length < 50) {
+			console.log("Замечательные имена")
+			mainList.employers[i] = nameEmployers;
+		} else {
+			--i;
+		}
+	}
+}
+
+
+function askDiscount(number) {
+	if (mainList.discount === true) {
+		var newPrice = price/100 * 20;
+		price = price - newPrice;
+		console.log(price);
+	} else {
+		console.log('У вас нет скидки');
+	}
+}
 
 
 console.log(mainList);
+function checkDayBudget(){
 alert("Ваш бюджет на 1 день : " + mainList.budget / 30);
+}
+
+giveNameEmpoloyers();
+checkDayBudget();
+askDiscount();
