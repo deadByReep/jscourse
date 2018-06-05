@@ -81,10 +81,11 @@ var mainList = {
 			mainList.shopItems.forEach(function(item,i){
 				alert(i + 1 + ": " + 'У нас вы можете приобрести: "' + item + '"' );
 			})
-	for(let key in mainList) {
-		console.log("Наш магазин включает в себя " + key + mainList[key])
+	
 	}
-	}
+	
  }
-
+for(let key in mainList) {
+		console.log("Наш магазин включает в себя " + key + mainList[key])
+}		
 console.log(mainList);
