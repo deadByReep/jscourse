@@ -1,7 +1,7 @@
-var budgetMonth = prompt("Ваш бюджет за месяц?", "Введите число"),
+var budgetMonth = prompt("Введите свой бюджет на месяц: "),
 	yourNameShop = prompt("Название вашего магазина?","Ваше название"),
 	price = 100;
-
+	
 
 var mainList = {
 	budget: budgetMonth,
