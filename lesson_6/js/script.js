@@ -43,12 +43,15 @@ openBtn.addEventListener('click', () => {
 	}
 	budgetValue.textContent = budgetMonth;
 
-	nameValue.textContent = prompt("Название вашего магазина?","Ваше название" ,"").toUpperCase();
+	nameValue.textContent = prompt("Название вашего магазина?", "").toUpperCase();
+	while(nameValue.textContent === '' || nameValue.textContent === null) {
+		nameValue.textContent = prompt("Название вашего магазина?", "").toUpperCase();
+	}
 	countBudgetBtn.disabled = 0;
 });
 
 openBtn.addEventListener('click', () => {
-    let isDiscount = confirm('У вас есть скидка?');
+    let isDiscount = confirm('Ввести дисконтную систему?');
     if (isDiscount) {
         price *= 0.8;
         discountValue.textContent = 'Скидка: 20% ';
@@ -129,7 +132,6 @@ countBudgetBtn.addEventListener('click', () => {
 
 for(let i = 0; i < employersName.length; i++){
 		employersName[i].addEventListener('change', () =>{
-
 if (employersName.value != '') {
 	employersBtn.disabled = 0;
 	} else {
@@ -140,15 +142,14 @@ if (employersName.value != '') {
 
 }	
 
-
-
 employersBtn.addEventListener('click', () => {
 	for (let i = 0; i < employersName.length; i++) {
 	let nameEmployers = employersName[i].value;
 	mainList.employers[i] = nameEmployers;
 
 		employersValue.textContent += mainList.employers[i] + ', ';
-	}		
+	}
+	employersBtn.disabled = 1;		
 });
 
 
