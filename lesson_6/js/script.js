@@ -9,20 +9,20 @@ var open = document.getElementById('open-btn'),
 	goodsItemBtn = document.getElementsByTagName('button')[1],
 	countBudgetBtn = document.getElementsByTagName('button')[2],
 	employersBtn = document.getElementsByTagName('button')[3],
-	name = document.getElementsByClassName[0],
-	nameValue = document.getElementsByClassName[1],
-	budget = document.getElementsByClassName[2],
-	budgetValue = document.getElementsByClassName[3],
-	goods = document.getElementsByClassName[4],
-	goodsValue = document.getElementsByClassName[5],
-	items = document.getElementsByClassName[6],
-	itemsValue = document.getElementsByClassName[7],
-	employers = document.getElementsByClassName[8],
-	employersValue = document.getElementsByClassName[9],
-	discount = document.getElementsByClassName[10],
-	discountValue = document.getElementsByClassName[11],
-	isopen = document.getElementsByClassName[12],
-	isopenValue = document.getElementsByClassName[13],
+	name = document.getElementsByClassName('name')[0],
+	nameValue = document.getElementsByClassName('name-value')[1],
+	budget = document.getElementsByClassName('budget')[2],
+	budgetValue = document.getElementsByClassName('budget-value')[3],
+	goods = document.getElementsByClassName('goods')[4],
+	goodsValue = document.getElementsByClassName('goods-value')[5],
+	items = document.getElementsByClassName('items')[6],
+	itemsValue = document.getElementsByClassName('items-value')[7],
+	employers = document.getElementsByClassName('employers')[8],
+	employersValue = document.getElementsByClassName('employers-value')[9],
+	discount = document.getElementsByClassName('discount')[10],
+	discountValue = document.getElementsByClassName('discount-value')[11],
+	isopen = document.getElementsByClassName('isopen')[12],
+	isopenValue = document.getElementsByClassName('isopen-value')[13],
 	price = 1000;
 
 
@@ -53,8 +53,8 @@ openBtn.addEventListener('click', () => {
         discountValue.style.backgroundColor = 'red'
     }
 });
-	if(goodsItems === '') {
- 		goodsItemsBtn.disabled = disbled;
+	if(goodsItems === undefined) {
+ 		goodsItemsBtn.disabled = true;
  			} else {
 goodsItemBtn.addEventListener('click', () => {
 	for (let i = 0; i < goodsItems.length; i++) {
