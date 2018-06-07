@@ -43,10 +43,11 @@ openBtn.addEventListener('click', () => {
 	}
 	budgetValue.textContent = budgetMonth;
 
-	nameValue.textContent = prompt("Название вашего магазина?", "").toUpperCase();
-	while(nameValue.textContent === '' || nameValue.textContent === null) {
-		nameValue.textContent = prompt("Название вашего магазина?", "").toUpperCase();
+	yourNameShop = prompt("Название вашего магазина?", "");
+	while(yourNameShop == null || yourNameShop == '') {
+		yourNameShop = prompt("Название вашего магазина?", "");
 	}
+	nameValue.textContent = yourNameShop.toUpperCase();
 	countBudgetBtn.disabled = 0;
 });
 
