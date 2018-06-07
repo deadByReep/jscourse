@@ -1,6 +1,7 @@
 var open = document.getElementById('open-btn'),
-	mainInfo = document.getElementsByClassName('main-info'),
+	mainInfo = document.getElementsByClassName('main-info')[0],
 	goodsItems = document.getElementsByClassName('goods-item'),
+	btn = document.getElementsByTagName('button'),
 	chooseItem = document.querySelector('.choose-item'),
 	timeValue = document.querySelector('.time-value'),
 	countBudget = document.querySelector('.count-budget-value'),
@@ -10,37 +11,41 @@ var open = document.getElementById('open-btn'),
 	countBudgetBtn = document.getElementsByTagName('button')[2],
 	employersBtn = document.getElementsByTagName('button')[3],
 	name = document.getElementsByClassName('name')[0],
-	nameValue = document.getElementsByClassName('name-value')[1],
-	budget = document.getElementsByClassName('budget')[2],
-	budgetValue = document.getElementsByClassName('budget-value')[3],
-	goods = document.getElementsByClassName('goods')[4],
-	goodsValue = document.getElementsByClassName('goods-value')[5],
-	items = document.getElementsByClassName('items')[6],
-	itemsValue = document.getElementsByClassName('items-value')[7],
-	employers = document.getElementsByClassName('employers')[8],
-	employersValue = document.getElementsByClassName('employers-value')[9],
-	discount = document.getElementsByClassName('discount')[10],
-	discountValue = document.getElementsByClassName('discount-value')[11],
-	isopen = document.getElementsByClassName('isopen')[12],
-	isopenValue = document.getElementsByClassName('isopen-value')[13],
+	nameValue = document.getElementsByClassName('name-value')[0],
+	budget = document.getElementsByClassName('budget')[0],
+	budgetValue = document.getElementsByClassName('budget-value')[0],
+	goods = document.getElementsByClassName('goods')[0],
+	goodsValue = document.getElementsByClassName('goods-value')[0],
+	items = document.getElementsByClassName('items')[0],
+	itemsValue = document.getElementsByClassName('items-value')[0],
+	employers = document.getElementsByClassName('employers')[0],
+	employersValue = document.getElementsByClassName('employers-value')[0],
+	discount = document.getElementsByClassName('discount')[0],
+	discountValue = document.getElementsByClassName('discount-value')[0],
+	isopen = document.getElementsByClassName('isopen')[0],
+	isopenValue = document.getElementsByClassName('isopen-value')[0],
 	price = 1000;
 
 
 var budgetMonth,
 	yourNameShop;
 
-
+countBudget.readOnly = 1;
+goodsItemBtn.disabled = 1;
+countBudgetBtn.disabled = 1;
+employersBtn.disabled = 1;
 
 openBtn.addEventListener('click', () => {
 	budgetMonth = prompt("Ваш бюджет за месяц?", "Введите число", "");
 
 	while (isNaN(budgetMonth) || budgetMonth == '' || budgetMonth == null) {
-		budgetMonth;
+		budgetMonth = prompt("Ваш бюджет за месяц?", "Введите число", "");
 	}
-	budgetValue.textContent = budgetMonth
+	budgetValue.textContent = budgetMonth;
 
 	nameValue.textContent = prompt("Название вашего магазина?","Ваше название" ,"").toUpperCase();
-});	
+	countBudgetBtn.disabled = 0;
+});
 
 openBtn.addEventListener('click', () => {
     let isDiscount = confirm('У вас есть скидка?');
@@ -53,9 +58,18 @@ openBtn.addEventListener('click', () => {
         discountValue.style.backgroundColor = 'red'
     }
 });
-	if(goodsItems === undefined) {
- 		goodsItemsBtn.disabled = true;
- 			} else {
+	for(let i = 0; i < goodsItems.length; i++){
+		goodsItems[i].addEventListener('change', () =>{
+
+if (goodsItems.value != '') {
+	goodsItemBtn.disabled = 0;
+	} else {
+		goodsItemBtn.disabled = 1;
+		}
+	
+	})
+
+}	
 goodsItemBtn.addEventListener('click', () => {
 	for (let i = 0; i < goodsItems.length; i++) {
  		let product = goodsItems[i].value;
@@ -70,7 +84,7 @@ goodsItemBtn.addEventListener('click', () => {
  			}
  		 }
 	})
-}
+
 
 
 chooseItem.addEventListener('change', () => {
@@ -111,6 +125,22 @@ timeValue.addEventListener('change', () => {
 countBudgetBtn.addEventListener('click', () => {
 	countBudget.value = budgetMonth / 30;
 });
+
+
+for(let i = 0; i < employersName.length; i++){
+		employersName[i].addEventListener('change', () =>{
+
+if (employersName.value != '') {
+	employersBtn.disabled = 0;
+	} else {
+		employersBtn.disabled = 1;
+		}
+	
+	})
+
+}	
+
+
 
 employersBtn.addEventListener('click', () => {
 	for (let i = 0; i < employersName.length; i++) {
