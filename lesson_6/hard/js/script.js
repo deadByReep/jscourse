@@ -1,5 +1,6 @@
 var open = document.getElementById('open-btn'),
 	mainInfo = document.getElementsByClassName('main-info')[0],
+	mainFunctions = document.getElementsByClassName('main-functions')[0];
 	goodsItems = document.getElementsByClassName('goods-item'),
 	btn = document.getElementsByTagName('button'),
 	chooseItem = document.querySelector('.choose-item'),
@@ -35,7 +36,14 @@ goodsItemBtn.disabled = 1;
 countBudgetBtn.disabled = 1;
 employersBtn.disabled = 1;
 
+mainInfo.style.visibility = 'hidden';
+mainFunctions.style.visibility = 'hidden';
+
+
+
 openBtn.addEventListener('click', () => {
+	mainInfo.style.visibility = 'visible';
+	mainFunctions.style.visibility = 'visible';
 	budgetMonth = prompt("Ваш бюджет за месяц?", "Введите число", "");
 
 	while (isNaN(budgetMonth) || budgetMonth == '' || budgetMonth == null) {
@@ -48,6 +56,7 @@ openBtn.addEventListener('click', () => {
 		nameValue.textContent = prompt("Название вашего магазина?", "").toUpperCase();
 	}
 	countBudgetBtn.disabled = 0;
+
 });
 
 openBtn.addEventListener('click', () => {
@@ -55,11 +64,12 @@ openBtn.addEventListener('click', () => {
     if (isDiscount) {
         price *= 0.8;
         discountValue.textContent = 'Скидка: 20% ';
-        discountValue.style.backgroundColor = 'green'
+        discountValue.style.backgroundColor = '#26CC10'
     } else {
         discountValue.textContent = '';
-        discountValue.style.backgroundColor = 'red'
+        discountValue.style.backgroundColor = '#CC1417'
     }
+    openBtn.disabled = 1; 
 });
 	for(let i = 0; i < goodsItems.length; i++){
 		goodsItems[i].addEventListener('change', () =>{
@@ -101,7 +111,7 @@ chooseItem.addEventListener('change', () => {
 	}
 });
 
-timeValue.addEventListener('change', () => {
+	timeValue.addEventListener('change', () => {
 	let time = timeValue.value;
 
 	if(time < 0) {
@@ -119,11 +129,15 @@ timeValue.addEventListener('change', () => {
 	}
 
 	if(mainList.open == true) {
-		isopenValue.style.backgroundColor = 'green';
+		isopenValue.style.backgroundColor = '#26CC10';
+		openBtn.disabled = 0; 
 	} else {
-		isopenValue.style.backgroundColor = 'red';
+		isopenValue.style.backgroundColor = '#CC1417';
+		openBtn.disabled = 1; 
 	}
 });
+
+
 
 countBudgetBtn.addEventListener('click', () => {
 	countBudget.value = budgetMonth / 30;
@@ -137,19 +151,29 @@ if (employersName.value != '') {
 	} else {
 		employersBtn.disabled = 1;
 		}
-	
+		i = i -1;
 	})
 
-}	
+}
+
+
+function replace() {
+ this.value = this.value.replace(/[^а-яА-Я\s]+/g,'') ;
+} ;
+employersName[0].onkeyup = replace ;
+employersName[1].onkeyup = replace ;
+employersName[2].onkeyup = replace ;
+
+
 
 employersBtn.addEventListener('click', () => {
+	employersValue.innerHTML = '';
 	for (let i = 0; i < employersName.length; i++) {
 	let nameEmployers = employersName[i].value;
 	mainList.employers[i] = nameEmployers;
 
 		employersValue.textContent += mainList.employers[i] + ', ';
-	}
-	employersBtn.disabled = 1;		
+	} 		
 });
 
 
