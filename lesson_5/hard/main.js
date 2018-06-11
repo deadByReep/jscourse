@@ -26,7 +26,7 @@ function formatDate(date) {
 var d = new Date;
 console.log(formatDate(d));
 
-function getToday(date) {
+/*function getToday(date) {
 	var day = date.getDay();
 	if(day === 0) day = 'Воскресенье';
 	if(day === 1) day = 'Понедельник';
@@ -77,7 +77,7 @@ function getMinusDate() {
     inputDateResult.value = diffDays; 
   }
  
-}
+}*/
 
 
 
