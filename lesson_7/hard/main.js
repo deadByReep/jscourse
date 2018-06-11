@@ -2,10 +2,10 @@ var btn = document.getElementsByTagName('button')[0];
 var elem = document.getElementById('myAnimation');
 
 
-btn.onclick = function() {
+/*btn.onclick = */function goGo() {
 	animate(function(timePassed) {
 		elem.style.left = timePassed / 5 + 'px'; 
-	}, 1760);
+	}, 7000/*Число специально большое*/);
 };
 
 	function animate (draw, duration) {
@@ -21,3 +21,4 @@ btn.onclick = function() {
 	});
 }
 	
+goGo();	
