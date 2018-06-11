@@ -2,7 +2,7 @@ var btn = document.getElementsByTagName('button')[0];
 var elem = document.getElementById('myAnimation');
 
 
-/*btn.onclick = */function goGo() {
+btn.onclick = function goGo() {
 	animate(function(timePassed) {
 		elem.style.left = timePassed / 5 + 'px'; 
 	}, 7000/*Число специально большое*/);
