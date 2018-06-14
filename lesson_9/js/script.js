@@ -86,7 +86,36 @@ window.addEventListener('DOMContentLoaded', function() {
 	//Modal
 	let more = document.querySelector('.more'),
 		overlay = document.querySelector('.overlay'),
-		close = document.querySelector('.popup-close');
+		close = document.querySelector('.popup-close'),
+		btnZero = document.getElementsByClassName('description-btn')[0],
+		btnOne = document.getElementsByClassName('description-btn')[1],
+		btnTwo = document.getElementsByClassName('description-btn')[2],
+		btnThree = document.getElementsByClassName('description-btn')[3];
+
+
+	btnZero.addEventListener('click', function() {
+		this.classList.add('more-splash');
+		overlay.style.display = 'block';
+		document.body.style.overflow = 'hidden';
+	});		
+
+	btnOne.addEventListener('click', function() {
+		this.classList.add('more-splash');
+		overlay.style.display = 'block';
+		document.body.style.overflow = 'hidden';
+	});	
+
+	btnTwo.addEventListener('click', function() {
+		this.classList.add('more-splash');
+		overlay.style.display = 'block';
+		document.body.style.overflow = 'hidden';
+	});	
+
+	btnThree.addEventListener('click', function() {
+		this.classList.add('more-splash');
+		overlay.style.display = 'block';
+		document.body.style.overflow = 'hidden';
+	});	
 
 	more.addEventListener('click', function() {
 		this.classList.add('more-splash');
