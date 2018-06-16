@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		info = document.getElementsByClassName('info-header')[0];
 
 	function hideTabContent(a) {
-		for (var i = a; i < tabContent.length; i++) {
+		for (let i = a; i < tabContent.length; i++) {
 			tabContent[i].classList.remove('show');
 			tabContent[i].classList.add('hide');
 		}
@@ -22,9 +22,9 @@ window.addEventListener('DOMContentLoaded', function() {
 	}
 
 	info.addEventListener('click', function(event) {
-		var target = event.target;
+		let target = event.target;
 		if(target.className == 'info-header-tab') {
-			for(var i = 0; i < tab.length; i++) {
+			for(let i = 0; i < tab.length; i++) {
 				if ( target == tab[i]) {
 					showTabContent(i);
 					break;
@@ -57,7 +57,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			seconds = timer.querySelector(".seconds");
 		var timeInterval = setInterval(updateClock, 1000);
 			function updateClock() {
-				var t = getTimeRemaining(endtime);
+				let t = getTimeRemaining(endtime);
 				hours.innerHTML = t.hours;
 				if(t.hours < 10 && t.hours >= 0) {
 					hours.innerHTML = `0${t.hours}`;

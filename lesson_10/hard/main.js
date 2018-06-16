@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", function() {
         event.keyCode && (keyCode = event.keyCode);
         var pos = this.selectionStart;
         if (pos < 3) event.preventDefault();
-        var matrix = " __/__/____",
+        var matrix = "(___) ___ ____",
             i = 0,
             def = matrix.replace(/\D/g, ""),
             val = this.value.replace(/\D/g, ""),
