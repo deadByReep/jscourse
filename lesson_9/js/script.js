@@ -1,11 +1,11 @@
 window.addEventListener('DOMContentLoaded', function() {
 
-	let tab = document.getElementsByClassName('info-header-tab'),
+	var tab = document.getElementsByClassName('info-header-tab'),
 		tabContent = document.getElementsByClassName('info-tabcontent'),
 		info = document.getElementsByClassName('info-header')[0];
 
 	function hideTabContent(a) {
-		for (let i = a; i < tabContent.length; i++) {
+		for (var i = a; i < tabContent.length; i++) {
 			tabContent[i].classList.remove('show');
 			tabContent[i].classList.add('hide');
 		}
@@ -22,9 +22,9 @@ window.addEventListener('DOMContentLoaded', function() {
 	}
 
 	info.addEventListener('click', function(event) {
-		let target = event.target;
+		var target = event.target;
 		if(target.className == 'info-header-tab') {
-			for(let i = 0; i < tab.length; i++) {
+			for(var i = 0; i < tab.length; i++) {
 				if ( target == tab[i]) {
 					showTabContent(i);
 					break;
@@ -35,10 +35,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	//Timer
 
-	let deadline = "2018-06-14";
+	var deadline = "2018-06-17";
 
 	function getTimeRemaining(endtime) {
-		let t = Date.parse(endtime) - Date.parse(new Date()),
+		var t = Date.parse(endtime) - Date.parse(new Date()),
 			seconds = Math.floor( (t/1000) % 60),
 			minutes = Math.floor( (t/1000/60) % 60),
 			hours = Math.floor( t/(1000*60*60));
@@ -51,24 +51,24 @@ window.addEventListener('DOMContentLoaded', function() {
 			}; 
 		};
 	function setClock(id, endtime) {
-		let timer = document.getElementById(id),
+		var timer = document.getElementById(id),
 			hours = timer.querySelector(".hours"),
 			minutes = timer.querySelector(".minutes"),
 			seconds = timer.querySelector(".seconds");
-		let timeInterval = setInterval(updateClock, 1000);
+		var timeInterval = setInterval(updateClock, 1000);
 			function updateClock() {
-				let t = getTimeRemaining(endtime);
+				var t = getTimeRemaining(endtime);
 				hours.innerHTML = t.hours;
 				if(t.hours < 10 && t.hours >= 0) {
-					hours.innerHTML = "0" + t.hours;
+					hours.innerHTML = `0${t.hours}`;
 				};
 				minutes.innerHTML = t.minutes;
 				if (t.minutes < 10 && t.minutes >= 0) {
-					minutes.innerHTML = "0" + t.minutes;
+					minutes.innerHTML = `0${t.minutes}`;
 				};
 				seconds.innerHTML = t.seconds;
 				if (t.seconds < 10 && t.seconds >= 0) {
-					seconds.innerHTML = "0" + t.seconds;
+					seconds.innerHTML = `0${t.seconds}`;
 				};
 
 				if(t.total <= 10800000) {
@@ -84,7 +84,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	setClock("timer", deadline);
 
 	//Modal
-	let more = document.querySelector('.more'),
+	var more = document.querySelector('.more'),
 		overlay = document.querySelector('.overlay'),
 		close = document.querySelector('.popup-close'),
 		btnZero = document.getElementsByClassName('description-btn')[0],
