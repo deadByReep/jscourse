@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', function() {
 
-	var tab = document.getElementsByClassName('info-header-tab'),
+	let tab = document.getElementsByClassName('info-header-tab'),
 		tabContent = document.getElementsByClassName('info-tabcontent'),
 		info = document.getElementsByClassName('info-header')[0];
 
@@ -35,10 +35,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	//Timer
 
-	var deadline = "2018-06-17";
+	let deadline = "2018-06-17";
 
 	function getTimeRemaining(endtime) {
-		var t = Date.parse(endtime) - Date.parse(new Date()),
+		let t = Date.parse(endtime) - Date.parse(new Date()),
 			seconds = Math.floor( (t/1000) % 60),
 			minutes = Math.floor( (t/1000/60) % 60),
 			hours = Math.floor( t/(1000*60*60));
@@ -51,11 +51,11 @@ window.addEventListener('DOMContentLoaded', function() {
 			}; 
 		};
 	function setClock(id, endtime) {
-		var timer = document.getElementById(id),
+		let timer = document.getElementById(id),
 			hours = timer.querySelector(".hours"),
 			minutes = timer.querySelector(".minutes"),
 			seconds = timer.querySelector(".seconds");
-		var timeInterval = setInterval(updateClock, 1000);
+		let timeInterval = setInterval(updateClock, 1000);
 			function updateClock() {
 				let t = getTimeRemaining(endtime);
 				hours.innerHTML = t.hours;
@@ -84,7 +84,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	setClock("timer", deadline);
 
 	//Modal
-	var more = document.querySelector('.more'),
+	let more = document.querySelector('.more'),
 		overlay = document.querySelector('.overlay'),
 		close = document.querySelector('.popup-close'),
 		btnZero = document.getElementsByClassName('description-btn')[0],
@@ -92,59 +92,77 @@ window.addEventListener('DOMContentLoaded', function() {
 		btnTwo = document.getElementsByClassName('description-btn')[2],
 		btnThree = document.getElementsByClassName('description-btn')[3];
 
-
+		
 	btnZero.addEventListener('click', function() {
-		this.classList.add('more-splash');
+		let modalOne = () => {
+			this.classList.add('more-splash');
 		overlay.style.display = 'block';
 		document.body.style.overflow = 'hidden';
-	});		
+	}	
+		modalOne();
+		});
 
 	btnOne.addEventListener('click', function() {
-		this.classList.add('more-splash');
+		let modalTwo = () => {
+			this.classList.add('more-splash');
 		overlay.style.display = 'block';
 		document.body.style.overflow = 'hidden';
+		}
+		modalTwo();
 	});	
 
 	btnTwo.addEventListener('click', function() {
-		this.classList.add('more-splash');
+		let modalThree = () => {
+			this.classList.add('more-splash');
 		overlay.style.display = 'block';
 		document.body.style.overflow = 'hidden';
+		}
+		modalThree();
 	});	
 
 	btnThree.addEventListener('click', function() {
-		this.classList.add('more-splash');
+		let modalFour = () => {
+			this.classList.add('more-splash');
 		overlay.style.display = 'block';
 		document.body.style.overflow = 'hidden';
+		}
+		modalFour();
 	});	
 
 	more.addEventListener('click', function() {
-		this.classList.add('more-splash');
+		let moreModal = () => {
+			this.classList.add('more-splash');
 		overlay.style.display = 'block';
 		document.body.style.overflow = 'hidden';
+		}
+		moreModal();
 	});
 	close.addEventListener('click', function() {
-		overlay.style.display = 'none';
+		let closeModal = () => {
+			overlay.style.display = 'none';
 		more.classList.remove('more-splash');
 		document.body.style.overflow = '';
 
+		}
+		closeModal();
 	});
 });
 
 //Scroll
 
-var links = document.querySelectorAll('[href^="#"]'),
+let links = document.querySelectorAll('[href^="#"]'),
     V = 1;
-for (var i = 0; i < links.length; i++) {
+for (let i = 0; i < links.length; i++) {
     links[i].addEventListener('click', function(e) { 
         e.preventDefault();
-        var w = window.pageYOffset,
+        let w = window.pageYOffset,
             hash = this.href.replace(/[^#]*(.*)/, '$1');
         t = document.querySelector(hash).getBoundingClientRect().top,
             start = null;
         requestAnimationFrame(step);
         function step(time) {
             if (start === null) start = time;
-            var progress = time - start,
+            let progress = time - start,
                 r = (t < 0 ? Math.max(w - progress/V, w + t) : Math.min(w + progress/V, w + t));
             window.scrollTo(0,r);
             if (r != w + t) {
