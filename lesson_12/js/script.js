@@ -291,6 +291,9 @@ window.addEventListener('DOMContentLoaded', function() {
 			total = 0;
 
 			totalValue.innerHTML = 0;
+			persons.addEventListener('keyup', function(){
+				this.value = this.value.replace (/^0+/g, '');
+			})
 
 			persons.addEventListener('change', function() {
 				personsSum = +this.value;
@@ -301,6 +304,10 @@ window.addEventListener('DOMContentLoaded', function() {
 					totalValue.innerHTML = total;
 				}
 			});
+
+			restDays.addEventListener('keyup', function(){
+				this.value = this.value.replace (/^0+/g, '');
+			})
 
 			restDays.addEventListener('change', function() {
 				daysSum = +this.value;
