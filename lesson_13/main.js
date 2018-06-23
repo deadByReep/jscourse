@@ -1,7 +1,15 @@
 $(document).ready(function() {
 	$('#sheldure').on('click', function() {
-		$('.modal').css('display', 'block');
-		$('.modal').fadeToggle('slow');
+		$('.overlay').animate(
+		{
+			opacity: 'toggle',
+			display: 'toggle'
+		},3000);
+		$('.modal').animate(
+	{
+		display:'block',
+		position: 'absolute'
+	},3000);
 		/*$('.modal').animate(
 		{
 			//display = 'block',
