@@ -294,6 +294,29 @@ window.addEventListener('DOMContentLoaded', function() {
 			persons.addEventListener('keyup', function(){
 				this.value = this.value.replace (/^0+/g, '');
 			})
+			persons.onkeypress = function(e) {
+      			e = e || event;
+      				if (e.ctrlKey || e.altKey || e.metaKey) return;
+      				var chr = getChar(e);
+      				if (chr == null) return;
+      				if (chr < '0' || chr > '9') {
+        			return false;
+      		}
+    	}
+
+    function getChar(event) {
+      if (event.which == null) {
+        if (event.keyCode < 32) return null;
+        return String.fromCharCode(event.keyCode) // IE
+      }
+
+      if (event.which != 0 && event.charCode != 0) {
+        if (event.which < 32) return null;
+        return String.fromCharCode(event.which) // остальные
+      }
+
+      return null; // специальная клавиша
+    }
 
 			persons.addEventListener('change', function() {
 				personsSum = +this.value;
@@ -308,6 +331,15 @@ window.addEventListener('DOMContentLoaded', function() {
 			restDays.addEventListener('keyup', function(){
 				this.value = this.value.replace (/^0+/g, '');
 			})
+			restDays.onkeypress = function(e) {
+      			e = e || event;
+      				if (e.ctrlKey || e.altKey || e.metaKey) return;
+      				var chr = getChar(e);
+      				if (chr == null) return;
+      				if (chr < '0' || chr > '9') {
+        			return false;
+      		}
+    	}
 
 			restDays.addEventListener('change', function() {
 				daysSum = +this.value;
